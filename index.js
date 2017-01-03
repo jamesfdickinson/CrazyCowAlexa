@@ -53,6 +53,10 @@ var handlers = {
 
         this.emit(':ask', messageAction + ". " + messageQuestion, messageQuestion);
     },
+    'Unhandled': function () {
+        var message = 'Try saying an action';
+        this.emit(':ask', message, message);
+    },
     'AMAZON.HelpIntent': function () {
         var message = 'Welcome to Crazy Cow. Use your voice to explore the cave. Start now?';
         var speechOutput = this.t(message);
