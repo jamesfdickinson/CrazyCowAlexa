@@ -13,9 +13,9 @@ exports.handler = function (event, context, callback) {
 
 var handlers = {
     'LaunchRequest': function () {
-         var crazyCow = new CrazyCow();
+        var crazyCow = new CrazyCow();
         var room = crazyCow.currentRoom;
-   
+
         this.attributes['currentRoom'] = room.name;
 
         var messageAction = room.story;
@@ -46,12 +46,15 @@ var handlers = {
 
         var newRoom = crazyCow.processSpeech(action);
 
-        this.attributes['currentRoom'] = newRoom.name;
-
         var messageAction = newRoom.story;
         var messageQuestion = "what should you do? " + newRoom.lefttext + " or " + newRoom.righttext;
 
-        this.emit(':ask', messageAction + ". " + messageQuestion, messageQuestion);
+        var message = messageAction + ". " + messageQuestion;
+        if (newRoom && newRoom.name === currentRoomName)
+            message = messageQuestion;
+
+        this.attributes['currentRoom'] = newRoom.name;
+        this.emit(':ask', message, message);
     },
     'Unhandled': function () {
         var message = 'Try saying an action';
