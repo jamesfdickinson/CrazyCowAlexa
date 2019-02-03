@@ -8,10 +8,11 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}\\index.js",
+            "program": "${workspaceRoot}\\console.js",
             "cwd": "${workspaceRoot}",
             "outFiles": [],
-            "sourceMaps": true
+            "sourceMaps": true,
+            "console": "integratedTerminal"
         },
         {
             "type": "node",

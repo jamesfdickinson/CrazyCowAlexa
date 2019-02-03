@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "console": "node console.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "alexa-sdk": "^1.0.6",
-    "prompt": "^1.0.0"
+    "prompt-async": "^0.9.9"
   },
   "devDependencies": {
     "mocha": "^3.2.0"

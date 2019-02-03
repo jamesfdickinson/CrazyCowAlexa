@@ -16,6 +16,15 @@ function CrazyCow(currentRoom) {
         }
         return null;
     };
+    this.action = function (action) {
+        var newRoom = this.processSpeech(action);
+    
+        var messageAction = newRoom.story;
+        var messageQuestion = "what should you do?  " + newRoom.lefttext + " or " + newRoom.righttext;
+    
+        var message = messageAction + "\n" + messageQuestion;
+        return message;
+    }
     this.processSpeech = function (speechWords) {
         if(!speechWords) return  this.currentRoom;
         //repeat
@@ -91,7 +100,7 @@ function CrazyCow(currentRoom) {
         //create boxes
         //makebox(mytitle,mystory,mysound, mylefttext, myrighttext)
         var cowBox = makebox("cow", "you are a farmer and you see a cow in your barn,and its not your cow. You know this because it has big wings... I wonder where it came from. all the sudden the cow looks at you as if you were a piece of its favorite food its ever had. uh-oh you think...", "moosound", "pet it", "run away");
-        var batmanBox = makebox("batman", "The cow with wings gives you a hug of thanks but it is cruching you...do you...", "batmansound", "say,can i ride you", "say you are a bumbo");
+        var batmanBox = makebox("batman", "The cow with wings gives you a hug of thanks but it is crushing you...do you...", "batmansound", "say,can i ride you", "say you are a bumbo");
         var snowmanBox = makebox("snowman", "moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo it says happily, you get on and it zips into the air", "snowmansound", "yell, faster faster", "yell, higher! higher!");
         var dogBox = makebox("dog", "It starts crying and it cries so much that you drown in its sad depresed tears", "dogsound", "start over", "this button is useless");
         var deathBox = makebox("death", "The cow thing zips way up into the clouds, vrrrrrrrrrrrrrrrrrrr you hear, i wonder what that could be you ponder... Then all the sudden you see it! its a plane and you get sucked into the turbine", "dudesound", "start over", "play again");
